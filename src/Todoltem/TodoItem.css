@@ -1,0 +1,15 @@
+ul,
+li {
+    list-style: none;
+    font-size: 20px;
+}
+
+.list-item {
+    border-bottom: 1px solid #eee;
+    margin: 20px;
+    padding: 5px 30px;
+}
+
+.removeIcon {
+    float: right;
+}
