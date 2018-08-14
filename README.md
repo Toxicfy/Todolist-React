@@ -1,12 +1,10 @@
-### react 入门
+> todolist- react入门
 
-> todolist
+实现最基本的功能，用于完成`React`语法的入门学习
 
-实现最基本的功能，用于完成`react`语法的入门学习
+和 `Vue` 相同的是对于一个功能的完成的核心都是进行拆分后进行组件的封装; 不相同的地方在于`JSX`的语法保证了所有的逻辑都能在`.js`文件中完成；
 
-和 `Vue` 相同的是对于一个功能的完成的核心都是进行拆分后进行组件的封装; 不相同的地方在于`JSX`的语法保证了所有的逻辑都能在.js文件中完成；
-
-总结通过简单的todolist，使用到的 react的用法；
+通过简单的 todolist，使用到的 react的用法；
 
 > 搭建脚手架工具，这个和Vue-cli差距不是很大，对于webpack的配置同样这里不写了，但是这不影响使用这个工程项目；
 
@@ -17,19 +15,20 @@
 其中`registerServiceWorker`缓存资源到本地，提升应用的访问速度，这个东西先给删除了，保证项目的简单，至于`package.json`作为包管理工具没什么特别的
 
 
->  jsx 的基础语法
+>  `JSX` 的基础语法
 
--  遇到 HTML 标签（以 < 开头），就用 HTML 规则解析； 遇到代码块（以 { 开头），就用 JavaScript 规则解析;
--  `class => className` / label中的`for => htmlFor`
+-  遇到 `HTML` 标签（以 `<` 开头），就用 `HTML` 规则解析； 遇到代码块（以 `{`开头），就用 JavaScript 规则解析;
+-  `class => className` 、 label中的 `for => htmlFor`等
 -  注释的写法在于 `{ }` 里面就可以按照js的注释写即可。
--  和 `vue`相同的根节点下只能有一个元素;
+-  和 `Vue`相同的根节点下只能有一个元素;
 
 >  组件的数据/方法
 
-首先`react`中的数据存在组件`constructor`中的state中；
+`react`中的数据存在组件`constructor`中的state中进行管理
 
-值得注意的是
-- 在使用中不可以直接修改state中的值，而应该使用`this.setState`进行修改:
+值得注意的是：
+
+- 在使用中避免直接修改state中的值，而应该使用`this.setState`方法进行修改:
 ``` JavaScript react
 //prevState这里就是指修改前，也就是`this.state`;
 this.setState((prevState) => ({
