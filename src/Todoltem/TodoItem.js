@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import { Row, Icon, Checkbox, Button } from 'antd';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import {Icon, Checkbox} from 'antd';
 import './TodoItem.css'
 
 class TodoItem extends Component {
@@ -9,25 +10,37 @@ class TodoItem extends Component {
   }
 
   render() {
-    const { content } = this.props;
+    const {content} = this.props;
     return (
       <div className='list-item'>
         <li>
-          <Checkbox  />
+          <Checkbox/>
           <span>{content}</span>
-          <Icon type="delete" 
+          <Icon type="delete"
                 className='removeIcon'
-                style={{ fontSize: 20, color: '#08c'}}
-                onClick={this.handleClick} />
+                style={{fontSize: 20, color: '#08c'}}
+                onClick={this.handleClick}/>
         </li>
       </div>
     );
   }
 
   handleClick() {
-    const { index, deleteItem } = this.props;
+    const {index, deleteItem} = this.props;
     deleteItem(index);
   };
 }
+
+//数据校验规则
+TodoItem.propTypes = {
+  content: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  index: PropTypes.number,
+  deleteItem: PropTypes.func.isRequired,//表明必须传递给组件
+};
+
+TodoItem.defaultProps = {
+  //当父组件没有传递 content 的时候默认的值
+  content: 'test demo',
+};
 
 export default TodoItem;

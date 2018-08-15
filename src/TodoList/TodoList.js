@@ -1,6 +1,6 @@
-import React, { Component} from 'react';
+import React, {Component} from 'react';
 import TodoItem from '../Todoltem/TodoItem';
-import {Input, Button } from 'antd';
+import {Input, Button} from 'antd';
 import './style.css';
 
 class TodoList extends Component {
@@ -22,10 +22,10 @@ class TodoList extends Component {
         <div className='input-container'>
           <label htmlFor="insertArea">待办事项</label>
           <Input id='insertArea'
-            className="insertArea"
-            type="text"
-            value={this.state.inputValue}
-            onChange={this.handelInputChange}
+                 className="insertArea"
+                 type="text"
+                 value={this.state.inputValue}
+                 onChange={this.handelInputChange}
           />
           <Button type="danger" onClick={this.handelBtnClick}>提交</Button>
         </div>
@@ -40,7 +40,7 @@ class TodoList extends Component {
   getTodoItem() {
     return this.state.list.map((item, index) => {
       return <TodoItem
-        key={index}
+        key={item}
         content={item}
         index={index}
         deleteItem={this.handelItemDelete}
@@ -75,7 +75,7 @@ class TodoList extends Component {
     this.setState((prevState) => {
       const list = [...prevState.list];
       list.splice(index, 1);
-      return { list: list }
+      return {list: list}
     })
   };
 }
