@@ -25,6 +25,11 @@ class TodoItem extends Component {
     );
   }
 
+  //避免多次渲染，因为super组件渲染它的子组件一定会被触发render()
+  shouldComponentUpdate(nextProps){
+    return nextProps.content !== this.props.content;
+  }
+
   handleClick() {
     const {index, deleteItem} = this.props;
     deleteItem(index);

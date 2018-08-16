@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import TodoItem from '../Todoltem/TodoItem';
+import axios from "axios";
 import {Input, Button} from 'antd';
 import './style.css';
 
@@ -14,6 +15,19 @@ class TodoList extends Component {
     this.handelInputChange = this.handelInputChange.bind(this);
     this.handelBtnClick = this.handelBtnClick.bind(this);
     this.handelItemDelete = this.handelItemDelete.bind(this);
+  }
+
+  //模拟数据
+  componentDidMount() {
+    axios.get('./api/todoList')
+      .then((res) => {
+        this.setState(() => ({
+          list: [...res.data]
+        }));
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
   render() {
@@ -78,6 +92,7 @@ class TodoList extends Component {
       return {list: list}
     })
   };
+
 }
 
 export default TodoList;
