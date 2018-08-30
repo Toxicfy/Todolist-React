@@ -1,0 +1,21 @@
+.App {
+  margin-top: 100px;
+  text-align: center;
+}
+.input {
+  width: 300px;
+}
+.addBtn {
+  margin-left: 20px;
+}
+.displayList {
+  width: 380px;
+  margin: 20px auto 0px;
+}
+.closeIcon {
+  position: absolute;
+  right: 8px;
+  line-height: 24px;
+  color: #08c;
+  cursor: pointer;
+}
