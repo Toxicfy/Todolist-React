@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-import { Input, Button, List, message, Icon } from "antd";
+import { message } from "antd";
+import axios from "axios";
 import {
   getInputChangeAction,
   getAddItemAction,
   getDeleteItemAction
 } from "./store/actionCreator";
+import TodoListUI from "./ToDoListUI";
 import store from "./store";
 import "antd/dist/antd.min.css";
 import "./App.css";
@@ -22,39 +24,21 @@ class App extends Component {
     // subscribe change of store
     store.subscribe(this.handleStoreChange);
   }
+  // 数据请求
+  componentDidMount() {
+    axios.get("/list").then(res => {
+      console.log(res);
+    });
+  }
   render() {
     return (
-      <div className="App">
-        <Input
-          placeholder="新建事项"
-          size="large"
-          className="input"
-          value={this.state.inputValue}
-          onChange={this.handleInputChange}
-        />
-        <Button size="large" className="addBtn" onClick={this.handleBtnClick}>
-          Add
-        </Button>
-        <div>
-          <List
-            size="large"
-            className="displayList"
-            dataSource={this.state.list}
-            bordered
-            renderItem={(item, index) => (
-              <List.Item>
-                {item}
-                <Icon
-                  type="close"
-                  className="closeIcon"
-                  style={{ fontSize: 20 }}
-                  onClick={this.deleteItem.bind(this, index)}
-                />
-              </List.Item>
-            )}
-          />
-        </div>
-      </div>
+      <TodoListUI
+        inputValue={this.state.inputValue}
+        list={this.state.list}
+        handleInputChange={this.handleInputChange}
+        handleBtnClick={this.handleBtnClick}
+        deleteItem={this.deleteItem}
+      />
     );
   }
   // 订阅
