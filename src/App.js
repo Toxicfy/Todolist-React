@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { message } from "antd";
-import axios from "axios";
 import {
+  getTodoList,
   getInputChangeAction,
   getAddItemAction,
   getDeleteItemAction
@@ -26,9 +26,8 @@ class App extends Component {
   }
   // 数据请求
   componentDidMount() {
-    axios.get("/list").then(res => {
-      console.log(res);
-    });
+    const action = getTodoList();
+    store.dispatch(action);
   }
   render() {
     return (

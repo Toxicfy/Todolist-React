@@ -27,7 +27,7 @@ const TodoListUI = props => {
                 type="close"
                 className="closeIcon"
                 style={{ fontSize: 20 }}
-                onClick={index => {
+                onClick={() => {
                   props.deleteItem(index);
                 }}
               />
