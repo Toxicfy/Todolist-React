@@ -106,7 +106,7 @@ componentWillMount() {
 > ### 运行和交互
 
 
-![react-updation](http://ovqjk8s4c.bkt.clouddn.com/react-todolistreact-updating.png)
+![](./public/image/react-todolistreact-updating.png)
 
 > ### 卸载
 
