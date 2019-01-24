@@ -106,7 +106,7 @@ componentWillMount() {
 > ### 运行和交互
 
 
-![](./public/image/react-todolistreact-updating.png)
+![](https://github.com/Toxicfy/Combing-notes/blob/master/note_image/React/react-todolistreact-updating.png?raw=true)
 
 > ### 卸载
 
